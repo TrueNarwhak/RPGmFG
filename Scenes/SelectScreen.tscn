@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://c320twmibeytx" path="res://MatchSettings.tres" id="2_ly1kb"]
 [ext_resource type="Resource" uid="uid://bl30fi0muatu1" path="res://StageSelect.tres" id="3_qnnlv"]
 [ext_resource type="Resource" uid="uid://fxj4uvd0y37r" path="res://Soundtrack.tres" id="4_i5d7u"]
-[ext_resource type="Texture2D" uid="uid://ccj7yra2c1xbp" path="res://Fighters/Kaede/Sprites/Kaede_Render.png" id="5_v0euj"]
+[ext_resource type="Texture2D" uid="uid://ckornbcskvw5n" path="res://Fighters/Kaede/Sprites/Kaede_Render.png" id="5_v0euj"]
 [ext_resource type="PackedScene" uid="uid://dw8jr0o1wc7hl" path="res://Scenes/Instances/CharSelectPortrait.tscn" id="6_5y3p4"]
 [ext_resource type="Texture2D" uid="uid://dovvnevt722ck" path="res://Sprites/Char_Random.png" id="6_pej5c"]
 [ext_resource type="Texture2D" uid="uid://76j3dxo635sm" path="res://Stages/Sakuga Default/Sakuga_Default_Thumbnail.png" id="6_vt3nd"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://54usvtxxigmk" path="res://Scenes/Instances/ColorSelectionElement.tscn" id="17_8r0cl"]
 [ext_resource type="Script" uid="uid://bvwd6emkqafdy" path="res://Scripts/SakugaEngine/UI/ColorSelectMenu.cs" id="17_u1s66"]
 [ext_resource type="Texture2D" uid="uid://cw7llwhkqnheo" path="res://Sprites/Arrow.png" id="18_7p58r"]
+[ext_resource type="FontFile" uid="uid://b7skmaevw8dv8" path="res://Fonts/rpg-maker-2k.otf" id="19_mk26h"]
 
 [node name="Control" type="Control" unique_id=464996932 node_paths=PackedStringArray("CharacterSelectMode", "StageSelectMode", "P1SelectedRender", "P2SelectedRender", "P1SelectedName", "P2SelectedName", "P1Cursor", "P2Cursor", "charactersContainer", "P1ColorSelect", "P2ColorSelect", "StageSelectedRender", "StageSelectedName", "SongSelectedName", "P1SelectingStage", "P2SelectingStage", "StageCursor", "stagesContainer")]
 layout_mode = 3
@@ -61,8 +62,8 @@ autoStageThumbnail = ExtResource("10_8r0cl")
 
 [node name="P1SelectedRender" type="TextureRect" parent="." unique_id=178251963]
 layout_mode = 0
-offset_right = 596.0
-offset_bottom = 980.0
+offset_right = 292.0
+offset_bottom = 480.13425
 texture = ExtResource("12_7p58r")
 expand_mode = 1
 stretch_mode = 5
@@ -72,8 +73,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -596.0
-offset_bottom = 980.0
+offset_left = -293.0
+offset_bottom = 481.77853
 grow_horizontal = 0
 texture = ExtResource("5_v0euj")
 expand_mode = 1
@@ -226,7 +227,6 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 
 [node name="StageSelect" type="Control" parent="." unique_id=928303259]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -241,13 +241,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -319.0
-offset_top = -286.0
-offset_right = 320.0
-offset_bottom = 140.0
+offset_left = -299.5
+offset_top = -273.0
+offset_right = 300.5
+offset_bottom = 127.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_vt3nd")
+expand_mode = 2
 
 [node name="Title" type="Label" parent="StageSelect" unique_id=2077981170]
 layout_mode = 1
@@ -258,7 +259,8 @@ offset_left = -197.0
 offset_right = 197.0
 offset_bottom = 69.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
+theme_override_fonts/font = ExtResource("19_mk26h")
+theme_override_font_sizes/font_size = 24
 text = "Stage Select"
 horizontal_alignment = 1
 

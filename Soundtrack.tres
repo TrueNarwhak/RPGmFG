@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c77vg0hf8uesn" path="res://Songs/Strive_Rock_Parade.mp3" id="1_qotvk"]
 [ext_resource type="AudioStream" uid="uid://bo6naqlsneles" path="res://Songs/Xrd_High_Voltage.mp3" id="3_mn7hy"]
 [ext_resource type="AudioStream" uid="uid://dhal6ohm6i4s2" path="res://Songs/BlazBlue_Alexandrite_II.mp3" id="4_28mao"]
+[ext_resource type="AudioStream" uid="uid://f578g3hco65d" path="res://Songs/OFF - peppersteak(loop).mp3" id="5_mn7hy"]
 
 [sub_resource type="Resource" id="Resource_i6s0c"]
 script = ExtResource("1_bkc4d")
@@ -24,7 +25,13 @@ SongName = "Alexandrite II"
 clip = ExtResource("4_28mao")
 metadata/_custom_type_script = "uid://bldnphonm50nq"
 
+[sub_resource type="Resource" id="Resource_28mao"]
+script = ExtResource("1_bkc4d")
+SongName = "Pepper Steak"
+clip = ExtResource("5_mn7hy")
+metadata/_custom_type_script = "uid://bldnphonm50nq"
+
 [resource]
 script = ExtResource("1_g040y")
-elements = Array[Object]([SubResource("Resource_i6s0c"), SubResource("Resource_oj6ts"), SubResource("Resource_qotvk")])
+elements = Array[Object]([SubResource("Resource_i6s0c"), SubResource("Resource_oj6ts"), SubResource("Resource_qotvk"), SubResource("Resource_28mao")])
 metadata/_custom_type_script = "uid://nup8upyemx4m"

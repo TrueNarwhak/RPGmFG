@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2l2206ftntd2" path="res://Scripts/SakugaEngine/UI/MainMenu.cs" id="1_tt5f1"]
 [ext_resource type="Resource" uid="uid://c320twmibeytx" path="res://MatchSettings.tres" id="2_853f1"]
+[ext_resource type="FontFile" uid="uid://b7skmaevw8dv8" path="res://Fonts/rpg-maker-2k.otf" id="3_8saeu"]
 
 [node name="Control" type="Control" unique_id=626625648 node_paths=PackedStringArray("firstButton", "InputSelectMenu", "DeviceWidgetKeyboard1", "DeviceWidgetKeyboard2", "DeviceWidgetController1", "DeviceWidgetController2", "PivotP1", "PivotP2")]
 layout_mode = 3
@@ -27,6 +28,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -246.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -36,9 +38,9 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -418.5
-offset_top = 76.0
+offset_top = -43.0
 offset_right = 418.5
-offset_bottom = 241.0
+offset_bottom = 122.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 60
 text = "Sakuga Engine"
@@ -63,33 +65,46 @@ alignment = 1
 [node name="Button_Online" type="Button" parent="MainMenu/VBoxContainer" unique_id=1631382224]
 layout_mode = 2
 size_flags_vertical = 11
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 12
+disabled = true
 text = " Online mode"
 
 [node name="Button_Arcade" type="Button" parent="MainMenu/VBoxContainer" unique_id=1313525303]
 layout_mode = 2
 size_flags_vertical = 11
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 12
 disabled = true
 text = "Arcade mode"
 
 [node name="Button_Versus" type="Button" parent="MainMenu/VBoxContainer" unique_id=1092754504]
 layout_mode = 2
 size_flags_vertical = 11
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 12
 text = "Versus mode"
 
 [node name="Button_Training" type="Button" parent="MainMenu/VBoxContainer" unique_id=1210790888]
 layout_mode = 2
 size_flags_vertical = 11
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 12
 text = "Training mode"
 
 [node name="Button_Replay" type="Button" parent="MainMenu/VBoxContainer" unique_id=1424355848]
 layout_mode = 2
 size_flags_vertical = 11
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 12
 disabled = true
 text = "Replay mode"
 
 [node name="Button_Quit" type="Button" parent="MainMenu/VBoxContainer" unique_id=1270923890]
 layout_mode = 2
 size_flags_vertical = 11
+theme_override_fonts/font = ExtResource("3_8saeu")
+theme_override_font_sizes/font_size = 12
 text = "Quit Game"
 
 [node name="InputSelection" type="Control" parent="." unique_id=1429820253]

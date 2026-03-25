@@ -13,7 +13,7 @@ namespace SakugaEngine
         public const int WallLimit = 75000;
         public const int CeilingLimit = 120000;
         public const int StartingPosition = 15000;
-        public const int MaxPlayersDistance = 70000;
+        public const int MaxPlayersDistance = 40000;
         public const int InputHistorySize = 16;
         public const int KaraCancelWindow = 3;
         public const int DefaultGravity = 200000;

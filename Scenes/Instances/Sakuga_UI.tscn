@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cirlpf1j23vao" path="res://Sprites/meter_sprite_fill.png" id="8_vbhb2"]
 [ext_resource type="Script" uid="uid://bxh004jlgsbbb" path="res://Scripts/SakugaEngine/UI/InputHistory.cs" id="9_vdd12"]
 [ext_resource type="PackedScene" uid="uid://cjtsw7lf6uyuy" path="res://Scenes/Instances/InputHistory_Pref_P1.tscn" id="10_kbxok"]
+[ext_resource type="FontFile" uid="uid://b7skmaevw8dv8" path="res://Fonts/rpg-maker-2k.otf" id="11_4120v"]
 [ext_resource type="Script" uid="uid://b6yldfeec8kg2" path="res://Scripts/SakugaEngine/Utils/ShowFPS.cs" id="11_a8ejj"]
 [ext_resource type="PackedScene" uid="uid://cljylybqkoasi" path="res://Scenes/Instances/InputHistory_Pref_P2.tscn" id="11_k2bmj"]
 [ext_resource type="Script" uid="uid://hm7bsfnod2vb" path="res://Scripts/SakugaEngine/UI/FadeScreen.cs" id="12_uu21w"]
@@ -617,8 +618,13 @@ P1Debug = NodePath("../Debug/P1Debug")
 P2Debug = NodePath("../Debug/P2Debug")
 
 [node name="HealthBars" type="Control" parent="GameHUD_Background" unique_id=1101058686]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 10
 anchor_right = 1.0
+offset_left = 184.00002
+offset_right = 184.0
+grow_horizontal = 2
+scale = Vector2(0.43497553, 0.43497553)
 
 [node name="P1Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=685425323]
 layout_mode = 0
@@ -1024,7 +1030,7 @@ stretch = true
 transparent_bg = true
 handle_input_locally = false
 oversampling_override = 2.0
-size = Vector2i(1280, 720)
+size = Vector2i(640, 480)
 size_2d_override = Vector2i(1920, 1080)
 size_2d_override_stretch = true
 render_target_update_mode = 4
@@ -1052,10 +1058,18 @@ P1InputHistory = NodePath("InputHistory/P1InputHistory")
 P2InputHistory = NodePath("InputHistory/P2InputHistory")
 
 [node name="Meters" type="Control" parent="GameHUD_Foreground" unique_id=1096578342]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 143.99998
+offset_top = -32.0
+offset_right = 144.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5776616, 0.5776616)
 
 [node name="P1Meter" type="TextureProgressBar" parent="GameHUD_Foreground/Meters" unique_id=1041470327]
 layout_mode = 0
@@ -1142,8 +1156,8 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="TrainingInfo" type="Control" parent="GameHUD_Foreground" unique_id=108050585]
-visible = false
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 
@@ -1174,9 +1188,12 @@ layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 6.0
+offset_top = -65.0
 offset_right = 123.0
-offset_bottom = 153.0
+offset_bottom = 218.0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_4120v")
+theme_override_font_sizes/font_size = 12
 text = "Damage
 Current combo
 Highest combo
@@ -1195,6 +1212,8 @@ offset_right = 205.0
 offset_bottom = 153.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_4120v")
+theme_override_font_sizes/font_size = 12
 text = "0
 0
 0
@@ -1232,6 +1251,8 @@ offset_left = 6.0
 offset_right = 123.0
 offset_bottom = 153.0
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("11_4120v")
+theme_override_font_sizes/font_size = 12
 text = "Damage
 Current combo
 Highest combo
@@ -1250,6 +1271,9 @@ offset_right = 205.0
 offset_bottom = 153.0
 grow_horizontal = 0
 grow_vertical = 2
+theme_override_constants/line_spacing = 3
+theme_override_fonts/font = ExtResource("11_4120v")
+theme_override_font_sizes/font_size = 12
 text = "0
 0
 0
@@ -1258,7 +1282,6 @@ HIGH
 0(+0)"
 
 [node name="InputHistory" type="Control" parent="GameHUD_Foreground" unique_id=1672551536]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1272,10 +1295,11 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 50.0
-offset_top = -336.0
+offset_top = -176.0
 offset_right = 50.0
-offset_bottom = 384.0
+offset_bottom = 544.0
 grow_vertical = 2
+scale = Vector2(0.5285171, 0.5285171)
 theme_override_constants/separation = 45
 script = ExtResource("9_vdd12")
 elements = [NodePath("InputHistory_Pref1"), NodePath("InputHistory_Pref2"), NodePath("InputHistory_Pref3"), NodePath("InputHistory_Pref4"), NodePath("InputHistory_Pref5"), NodePath("InputHistory_Pref6"), NodePath("InputHistory_Pref7"), NodePath("InputHistory_Pref8"), NodePath("InputHistory_Pref9"), NodePath("InputHistory_Pref10"), NodePath("InputHistory_Pref11"), NodePath("InputHistory_Pref12"), NodePath("InputHistory_Pref13"), NodePath("InputHistory_Pref14"), NodePath("InputHistory_Pref15"), NodePath("InputHistory_Pref16")]
@@ -1336,11 +1360,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = -336.0
+offset_top = -176.0
 offset_right = -50.0
-offset_bottom = 384.0
+offset_bottom = 544.0
 grow_horizontal = 0
 grow_vertical = 2
+scale = Vector2(0.5285171, 0.5285171)
 theme_override_constants/separation = 45
 script = ExtResource("9_vdd12")
 elements = [NodePath("InputHistory_Pref"), NodePath("InputHistory_Pref2"), NodePath("InputHistory_Pref3"), NodePath("InputHistory_Pref4"), NodePath("InputHistory_Pref5"), NodePath("InputHistory_Pref6"), NodePath("InputHistory_Pref7"), NodePath("InputHistory_Pref8"), NodePath("InputHistory_Pref9"), NodePath("InputHistory_Pref10"), NodePath("InputHistory_Pref11"), NodePath("InputHistory_Pref12"), NodePath("InputHistory_Pref13"), NodePath("InputHistory_Pref14"), NodePath("InputHistory_Pref15"), NodePath("InputHistory_Pref16")]
@@ -1420,10 +1445,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -241.5
-offset_top = -147.0
-offset_right = 414.5
-offset_bottom = 147.00024
+offset_left = 78.5
+offset_top = -27.0
+offset_right = 734.5
+offset_bottom = 465.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(328, 147)
@@ -1652,6 +1677,7 @@ text = "Player 2 name"
 horizontal_alignment = 2
 
 [node name="FadeScreen" type="ColorRect" parent="." unique_id=1110242483]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1676,7 +1702,8 @@ offset_bottom = 426.0
 color = Color(0, 0, 0, 0.156863)
 
 [node name="ColorRect2" type="ColorRect" parent="Debug" unique_id=1740915217]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -240.0
@@ -1698,6 +1725,8 @@ offset_left = -103.0
 offset_right = -6.0
 offset_bottom = 23.0
 grow_horizontal = 0
+theme_override_fonts/font = ExtResource("11_4120v")
+theme_override_font_sizes/font_size = 12
 text = "Lorem ipsun"
 horizontal_alignment = 2
 
@@ -1733,6 +1762,7 @@ horizontal_alignment = 1
 script = ExtResource("11_a8ejj")
 
 [node name="PleaseResync_UI" parent="." unique_id=1086814857 instance=ExtResource("14_16eh6")]
+visible = false
 
 [node name="Seed" type="Label" parent="." unique_id=737444796]
 anchors_preset = 7

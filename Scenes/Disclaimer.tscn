@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://qbmrc611urq6"]
 
 [ext_resource type="FontFile" uid="uid://b7skmaevw8dv8" path="res://Fonts/rpg-maker-2k.otf" id="1_bas0b"]
-[ext_resource type="Script" uid="uid://buyn5qkejbfw6" path="res://Scripts/ManiacsBash/disclaimer.gd" id="1_tmjte"]
+[ext_resource type="Script" uid="uid://bcqfnpqi17e7c" path="res://Scripts/RPGmFG/Disclaimer.cs" id="1_tmjte"]
 
 [sub_resource type="Animation" id="Animation_tmjte"]
 length = 0.001
@@ -44,26 +44,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:can_progress")
+tracks/3/path = NodePath("Covers/Cover4:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Covers/Cover4:color")
+tracks/4/path = NodePath(".:CanProgress")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_q6dpt"]
@@ -108,26 +108,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:can_progress")
+tracks/3/path = NodePath("Covers/Cover4:color")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(5.8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Covers/Cover4:color")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(5.8, 6.133333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:CanProgress")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.866667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_amrdu"]
@@ -136,7 +136,7 @@ _data = {
 &"reveal": SubResource("Animation_q6dpt")
 }
 
-[node name="Disclaimer" type="Control" unique_id=1851531686 node_paths=PackedStringArray("disclaimer_label", "anim_player")]
+[node name="Disclaimer" type="Control" unique_id=1851531686 node_paths=PackedStringArray("AnimPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,8 +144,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tmjte")
-disclaimer_label = NodePath("DisclaimerLabel")
-anim_player = NodePath("AnimationPlayer")
+AnimPlayer = NodePath("AnimationPlayer")
 
 [node name="Bg" type="ColorRect" parent="." unique_id=1266583048]
 layout_mode = 0
@@ -190,7 +189,6 @@ horizontal_alignment = 1
 vertical_alignment = 2
 
 [node name="Covers" type="Control" parent="." unique_id=1001274760]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

@@ -8,5 +8,6 @@
 script = ExtResource("1")
 FighterName = "Kaede Hioh"
 ShortName = "Kaede"
+Series = "Sakuga Engine"
 Render = ExtResource("2_5ro76")
 Portrait = ExtResource("2")
