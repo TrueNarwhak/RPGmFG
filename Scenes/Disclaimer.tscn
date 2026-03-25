@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://qbmrc611urq6"]
+
+[ext_resource type="FontFile" uid="uid://b7skmaevw8dv8" path="res://Fonts/rpg-maker-2k.otf" id="1_bas0b"]
+[ext_resource type="Script" uid="uid://buyn5qkejbfw6" path="res://Scripts/ManiacsBash/disclaimer.gd" id="1_tmjte"]
+
+[sub_resource type="Animation" id="Animation_tmjte"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Covers/Cover1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Covers/Cover2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Covers/Cover3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:can_progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Covers/Cover4:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q6dpt"]
+resource_name = "reveal"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Covers/Cover1:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.13333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Covers/Cover2:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2, 2.3400002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Covers/Cover3:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.5333333, 4.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:can_progress")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Covers/Cover4:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(5.8, 6.133333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amrdu"]
+_data = {
+&"RESET": SubResource("Animation_tmjte"),
+&"reveal": SubResource("Animation_q6dpt")
+}
+
+[node name="Disclaimer" type="Control" unique_id=1851531686 node_paths=PackedStringArray("disclaimer_label", "anim_player")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tmjte")
+disclaimer_label = NodePath("DisclaimerLabel")
+anim_player = NodePath("AnimationPlayer")
+
+[node name="Bg" type="ColorRect" parent="." unique_id=1266583048]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="DisclaimerLabel" type="RichTextLabel" parent="." unique_id=999998379]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 566.0
+offset_bottom = 408.0
+theme_override_colors/default_color = Color(0.9647059, 0.6745098, 0.18039216, 1)
+theme_override_fonts/normal_font = ExtResource("1_bas0b")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = ":: DISCLAIMER ::
+[color=white]Maniac's Bash[/color] is a labour of pure fandom.
+- The developers claim no ownership of any 
+  character or franchise depicited.
+
+[color=white]Maniac's Bash[/color] is a pre-release title.
+- New content such as characters, stages,
+  & modes will be introduced periodically.
+- Solo features such as unlockable characters 
+  and unlockable characters will come with 
+  the games 1.0.0 release.
+[color=pink]Please enjoy <3[/color]"
+
+[node name="PressAnyButton" type="RichTextLabel" parent="." unique_id=746365680]
+modulate = Color(1, 1, 1, 0.7999992)
+layout_mode = 0
+offset_left = 16.0
+offset_top = 425.0
+offset_right = 624.0
+offset_bottom = 457.0
+theme_override_fonts/normal_font = ExtResource("1_bas0b")
+theme_override_font_sizes/normal_font_size = 24
+text = "Press Any Button To Continue"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Covers" type="Control" parent="." unique_id=1001274760]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Cover1" type="ColorRect" parent="Covers" unique_id=1116080513]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 640.0
+offset_bottom = 152.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cover2" type="ColorRect" parent="Covers" unique_id=1284191529]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cover3" type="ColorRect" parent="Covers" unique_id=1193922008]
+layout_mode = 0
+offset_top = 360.0
+offset_right = 640.0
+offset_bottom = 432.0
+color = Color(0, 0, 0, 1)
+
+[node name="Cover4" type="ColorRect" parent="Covers" unique_id=1668326475]
+layout_mode = 0
+offset_top = 424.0
+offset_right = 640.0
+offset_bottom = 472.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=824173764]
+libraries/ = SubResource("AnimationLibrary_amrdu")

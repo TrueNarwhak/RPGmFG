@@ -63,7 +63,6 @@ alignment = 1
 [node name="Button_Online" type="Button" parent="MainMenu/VBoxContainer" unique_id=1631382224]
 layout_mode = 2
 size_flags_vertical = 11
-disabled = true
 text = " Online mode"
 
 [node name="Button_Arcade" type="Button" parent="MainMenu/VBoxContainer" unique_id=1313525303]
