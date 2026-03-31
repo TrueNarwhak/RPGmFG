@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FighterProfile" format=3 uid="uid://langfqmh1i23"]
+
+[ext_resource type="Script" uid="uid://c5w04j5my3h8p" path="res://Scripts/SakugaEngine/Resources/FighterProfile.cs" id="1_4cgt3"]
+[ext_resource type="Texture2D" uid="uid://c3cyqacvyusmv" path="res://Fighters/Dummy/capsule_render.png" id="1_usica"]
+
+[resource]
+script = ExtResource("1_4cgt3")
+FighterName = "Brad Armstrong"
+ShortName = "Brad"
+Series = "LISA: The Painful"
+Render = ExtResource("1_usica")
+metadata/_custom_type_script = "uid://c5w04j5my3h8p"

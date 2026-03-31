@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dnq37h466ru83"]
+
+[ext_resource type="Script" uid="uid://bkhlpeqky2g1r" path="res://Scripts/SakugaEngine/Components/SakugaFighter.cs" id="1_aimfa"]
+[ext_resource type="Script" uid="uid://hg0vcp1gy2ny" path="res://Scripts/SakugaEngine/Collision/PhysicsBody.cs" id="2_mys20"]
+[ext_resource type="Script" uid="uid://dshbmw3q5jor2" path="res://Scripts/SakugaEngine/Components/InputManager.cs" id="3_aegxq"]
+[ext_resource type="Script" uid="uid://v7id8u3160fg" path="res://Scripts/SakugaEngine/Components/FighterVariables.cs" id="4_x4qeq"]
+[ext_resource type="Script" uid="uid://17dvgaypi8q0" path="res://Scripts/SakugaEngine/Components/SakugaStateMachine.cs" id="5_u7xjh"]
+[ext_resource type="Script" uid="uid://bx452hpssiy38" path="res://Scripts/SakugaEngine/Components/FrameAnimator.cs" id="6_8m50s"]
+[ext_resource type="Script" uid="uid://jxgdxccucllx" path="res://Scripts/SakugaEngine/Components/CombatTracker.cs" id="7_c6wfg"]
+[ext_resource type="Script" uid="uid://cmq3cp1n0copp" path="res://Scripts/SakugaEngine/Components/FrameTimer.cs" id="8_cqeap"]
+
+[node name="SakugaFighter" type="Node3D" unique_id=324328287 node_paths=PackedStringArray("Body", "Inputs", "Variables", "Animator", "StateMachine", "Tracker", "Sounds", "Graphics")]
+script = ExtResource("1_aimfa")
+Body = NodePath("PhysicsBody")
+Inputs = NodePath("InputManager")
+Variables = NodePath("FighterVariables")
+Animator = NodePath("FrameAnimator")
+StateMachine = NodePath("SakugaStateMachine")
+Tracker = NodePath("CombatTracker")
+Sounds = []
+Graphics = []
+metadata/_custom_type_script = "uid://bkhlpeqky2g1r"
+
+[node name="PhysicsBody" type="Node" parent="." unique_id=1403676410]
+script = ExtResource("2_mys20")
+metadata/_custom_type_script = "uid://hg0vcp1gy2ny"
+
+[node name="InputManager" type="Node" parent="." unique_id=309391266]
+script = ExtResource("3_aegxq")
+metadata/_custom_type_script = "uid://dshbmw3q5jor2"
+
+[node name="FighterVariables" type="Node" parent="." unique_id=1261181642 node_paths=PackedStringArray("ExtraVariables")]
+script = ExtResource("4_x4qeq")
+ExtraVariables = []
+metadata/_custom_type_script = "uid://v7id8u3160fg"
+
+[node name="SakugaStateMachine" type="Node" parent="." unique_id=186392004]
+script = ExtResource("5_u7xjh")
+metadata/_custom_type_script = "uid://17dvgaypi8q0"
+
+[node name="FrameAnimator" type="Node" parent="." unique_id=1384264832 node_paths=PackedStringArray("players")]
+script = ExtResource("6_8m50s")
+players = []
+metadata/_custom_type_script = "uid://bx452hpssiy38"
+
+[node name="CombatTracker" type="Node" parent="." unique_id=1358402815]
+script = ExtResource("7_c6wfg")
+metadata/_custom_type_script = "uid://jxgdxccucllx"
+
+[node name="FrameTimer" type="Node" parent="." unique_id=1016966917]
+script = ExtResource("8_cqeap")
+metadata/_custom_type_script = "uid://cmq3cp1n0copp"

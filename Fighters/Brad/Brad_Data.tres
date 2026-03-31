@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DataContainer" format=3 uid="uid://cn4rxyvj644qk"]
+
+[ext_resource type="Script" uid="uid://bsbjg1nuyall1" path="res://Scripts/SakugaEngine/Resources/DataContainer.cs" id="1_0tp8c"]
+[ext_resource type="Resource" uid="uid://langfqmh1i23" path="res://Fighters/Brad/Brad_Profile.tres" id="1_ep845"]
+
+[resource]
+script = ExtResource("1_0tp8c")
+Profile = ExtResource("1_ep845")
+Hitboxes = null
+States = null
+Stances = null
+Intros = null
+Outros = null
+VictoryPoses = null
+metadata/_custom_type_script = "uid://bsbjg1nuyall1"
