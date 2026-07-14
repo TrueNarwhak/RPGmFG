@@ -2,15 +2,23 @@
 
 [ext_resource type="Script" uid="uid://cfclgt0r2avr4" path="res://Scripts/SakugaEngine/UI/HealthHUD.cs" id="1_ulr1j"]
 [ext_resource type="Texture2D" uid="uid://6ctweo6uvot8" path="res://icon.svg" id="2_h5vba"]
+[ext_resource type="Texture2D" uid="uid://byfvu0erh0xnk" path="res://Sprites/Interface/BattleUi/background.png" id="2_yl14h"]
+[ext_resource type="Texture2D" uid="uid://cjtd5rxn241fm" path="res://Sprites/Interface/BattleUi/round.png" id="3_jlnsx"]
+[ext_resource type="Texture2D" uid="uid://dmqw5mqjei40q" path="res://Sprites/Interface/BattleUi/texture_health_gradient_lose.png" id="3_lwnqj"]
 [ext_resource type="Texture2D" uid="uid://c6kfch34hg5x4" path="res://Sprites/healthbar_sprite.png" id="3_quu14"]
 [ext_resource type="Script" uid="uid://drp1aulrijkrn" path="res://Scripts/SakugaEngine/UI/RoundsCounter.cs" id="4_588f4"]
+[ext_resource type="Texture2D" uid="uid://d3etfugi3pt0s" path="res://Sprites/Interface/BattleUi/texture_health_gradient_p1.png" id="4_xgp81"]
 [ext_resource type="Script" uid="uid://g6vbpbaj5xi6" path="res://Scripts/SakugaEngine/UI/OnlineInfo.cs" id="5_1n2tl"]
 [ext_resource type="Script" uid="uid://bu3dc4gatmgm1" path="res://Scripts/SakugaEngine/UI/ComboCounter.cs" id="5_f6x8r"]
 [ext_resource type="Texture2D" uid="uid://df50nf7a0i58" path="res://Sprites/LobbyIcons/lobbyicons_platform_pc.png" id="5_j3lw1"]
+[ext_resource type="Texture2D" uid="uid://5f3vgnixy2yx" path="res://Sprites/Interface/BattleUi/texture_health_gradient_p2.png" id="5_xgp81"]
 [ext_resource type="Script" uid="uid://bxtx4t4kufbsq" path="res://Scripts/SakugaEngine/UI/MetersHUD.cs" id="6_m7ri4"]
+[ext_resource type="Texture2D" uid="uid://2bqoofab3yia" path="res://Sprites/Interface/BattleUi/Frames.png" id="7_4gmwt"]
 [ext_resource type="Texture2D" uid="uid://0vthev3fa841" path="res://Sprites/meter_sprite.png" id="7_6huh3"]
 [ext_resource type="Texture2D" uid="uid://cirlpf1j23vao" path="res://Sprites/meter_sprite_fill.png" id="8_vbhb2"]
 [ext_resource type="Script" uid="uid://bxh004jlgsbbb" path="res://Scripts/SakugaEngine/UI/InputHistory.cs" id="9_vdd12"]
+[ext_resource type="Texture2D" uid="uid://b5hf25wn7057j" path="res://Sprites/Interface/BattleUi/arrow.png" id="10_5ipgc"]
+[ext_resource type="Script" uid="uid://ck4gksdt1eiwk" path="res://Scripts/RPGmFG/ArrowHolder.cs" id="10_hbmc7"]
 [ext_resource type="PackedScene" uid="uid://cjtsw7lf6uyuy" path="res://Scenes/Instances/InputHistory_Pref_P1.tscn" id="10_kbxok"]
 [ext_resource type="FontFile" uid="uid://b7skmaevw8dv8" path="res://Fonts/rpg-maker-2k.otf" id="11_4120v"]
 [ext_resource type="Script" uid="uid://b6yldfeec8kg2" path="res://Scripts/SakugaEngine/Utils/ShowFPS.cs" id="11_a8ejj"]
@@ -20,6 +28,44 @@
 [ext_resource type="Script" uid="uid://tduqq7pxgphg" path="res://Scripts/SakugaEngine/UI/MatchCardsController.cs" id="14_c0xn6"]
 [ext_resource type="Script" uid="uid://c74ackq5g2cbw" path="res://Scripts/SakugaEngine/Resources/MatchAnimation.cs" id="15_ysn3l"]
 [ext_resource type="Script" uid="uid://3uu6r0mhj3p3" path="res://Scripts/SakugaEngine/Components/SoundQueue.cs" id="17_fweai"]
+
+[sub_resource type="Animation" id="Animation_hbmc7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4suxx"]
+resource_name = "bounce"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.46666667, 0.5266406, 0.7, 1.1666666),
+"transitions": PackedFloat32Array(2.0705302, 0.35355353, 1, 0.35355353, 0.3077863, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 3), Vector2(0, -2), Vector2(0, 3), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2sb4q"]
+_data = {
+&"RESET": SubResource("Animation_hbmc7"),
+&"bounce": SubResource("Animation_4suxx")
+}
 
 [sub_resource type="Resource" id="Resource_4120v"]
 script = ExtResource("15_ysn3l")
@@ -621,202 +667,222 @@ P2Debug = NodePath("../Debug/P2Debug")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_left = 184.00002
-offset_right = 184.0
 grow_horizontal = 2
-scale = Vector2(0.43497553, 0.43497553)
 
-[node name="P1Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=685425323]
+[node name="Background" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=1428791194]
+modulate = Color(1, 1, 1, 0.42745098)
 layout_mode = 0
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -640.0
-offset_right = -512.0
-offset_bottom = 128.0
-texture = ExtResource("2_h5vba")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="P2Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=89658278]
-layout_mode = 0
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 512.0
 offset_right = 640.0
-offset_bottom = 128.0
-texture = ExtResource("2_h5vba")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="P1LostHealth" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=997365537]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -590.0
-offset_top = 90.0
-offset_right = 1410.0
-offset_bottom = 225.0
-grow_horizontal = 2
-scale = Vector2(0.27, 0.27)
-max_value = 10000.0
-step = 0.0
-value = 8000.0
-fill_mode = 1
-texture_under = ExtResource("3_quu14")
-texture_progress = ExtResource("3_quu14")
-tint_under = Color(0.509804, 0.509804, 0.509804, 1)
-tint_progress = Color(0.72882, 0, 0.08201, 1)
-
-[node name="P1Health" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=799365614]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -590.0
-offset_top = 90.0
-offset_right = 1410.0
-offset_bottom = 225.0
-grow_horizontal = 2
-scale = Vector2(0.27, 0.27)
-max_value = 10000.0
-step = 0.0
-value = 7000.0
-fill_mode = 1
-texture_progress = ExtResource("3_quu14")
-tint_under = Color(0.509804, 0.509804, 0.509804, 1)
-tint_progress = Color(0.909804, 0.843137, 0.396078, 1)
-
-[node name="P2LostHealth" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=1499953177]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 46.0
-offset_top = 90.0
-offset_right = 2046.0
-offset_bottom = 225.0
-grow_horizontal = 2
-scale = Vector2(0.27, 0.27)
-max_value = 10000.0
-step = 0.0
-value = 8000.0
-texture_under = ExtResource("3_quu14")
-texture_progress = ExtResource("3_quu14")
-tint_under = Color(0.509804, 0.509804, 0.509804, 1)
-tint_progress = Color(0.72882, 0, 0.08201, 1)
-
-[node name="P2Health" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=907058496]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 46.0
-offset_top = 90.0
-offset_right = 2046.0
-offset_bottom = 225.0
-grow_horizontal = 2
-scale = Vector2(0.27, 0.27)
-max_value = 10000.0
-step = 0.0
-value = 7000.0
-texture_progress = ExtResource("3_quu14")
-tint_under = Color(0.509804, 0.509804, 0.509804, 1)
-tint_progress = Color(0.909804, 0.843137, 0.396078, 1)
+offset_bottom = 83.0
+texture = ExtResource("2_yl14h")
 
 [node name="P1Rounds" type="HBoxContainer" parent="GameHUD_Background/HealthBars" unique_id=1236664845]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -320.0
-offset_top = 35.0
-offset_right = 336.0
-offset_bottom = 163.0
-scale = Vector2(0.4, 0.4)
-alignment = 2
+offset_left = -127.0
+offset_top = 76.0
+offset_right = -46.0
+offset_bottom = 89.0
+grow_horizontal = 2
 script = ExtResource("4_588f4")
 RoundsLimit = 5
 
 [node name="Round5" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=481281020]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
 
 [node name="Round4" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=1270703837]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round3" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=96866374]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round2" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=1989885292]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round1" type="TextureRect" parent="GameHUD_Background/HealthBars/P1Rounds" unique_id=590624714]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="P2Rounds" type="HBoxContainer" parent="GameHUD_Background/HealthBars" unique_id=413745748]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 57.0
-offset_top = 35.0
-offset_right = 713.0
-offset_bottom = 163.0
+offset_left = 50.0
+offset_top = 75.0
+offset_right = 126.0
+offset_bottom = 87.0
 grow_horizontal = 2
-scale = Vector2(0.4, 0.4)
 script = ExtResource("4_588f4")
 RoundsLimit = 5
 
 [node name="Round1" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=250745876]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round2" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=635449683]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round3" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=511460096]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round4" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=1019859122]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="Round5" type="TextureRect" parent="GameHUD_Background/HealthBars/P2Rounds" unique_id=102428643]
 layout_mode = 2
-texture = ExtResource("2_h5vba")
-
-[node name="P1Name" type="Label" parent="GameHUD_Background/HealthBars" unique_id=1019002984]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -512.0
-offset_top = 40.0
-offset_right = -285.0
-offset_bottom = 63.0
-grow_horizontal = 2
-scale = Vector2(2, 2)
-text = "Fighter 1"
+texture = ExtResource("3_jlnsx")
+expand_mode = 2
 
 [node name="P2Name" type="Label" parent="GameHUD_Background/HealthBars" unique_id=1485341128]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 70.0
+offset_left = -160.0
 offset_top = 40.0
-offset_right = 291.0
+offset_right = 61.0
 offset_bottom = 63.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 text = "Fighter 2"
 horizontal_alignment = 2
+
+[node name="P1Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=685425323]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_right = -192.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("2_h5vba")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="P2Portrait" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=89658278]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 192.0
+offset_right = 320.0
+offset_bottom = 128.0
+grow_horizontal = 2
+texture = ExtResource("2_h5vba")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="P1Name" type="Label" parent="GameHUD_Background/HealthBars" unique_id=1019002984]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 20.0
+offset_right = -29.0
+offset_bottom = 43.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("11_4120v")
+theme_override_font_sizes/font_size = 12
+text = "Fighter 1"
+
+[node name="P1LostHealth" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=997365537]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -257.0
+offset_top = 56.0
+offset_right = -35.0
+offset_bottom = 70.0
+grow_horizontal = 2
+max_value = 10000.0
+step = 0.0
+value = 8000.0
+fill_mode = 1
+texture_progress = ExtResource("3_lwnqj")
+
+[node name="P1Health" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=799365614]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -256.0
+offset_top = 56.0
+offset_right = -34.0
+offset_bottom = 70.0
+grow_horizontal = 2
+max_value = 10000.0
+step = 0.0
+value = 7000.0
+fill_mode = 1
+texture_progress = ExtResource("4_xgp81")
+
+[node name="P2LostHealth" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=1499953177]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 35.0
+offset_top = 56.0
+offset_right = 256.0
+offset_bottom = 70.0
+grow_horizontal = 2
+max_value = 10000.0
+step = 0.0
+value = 8000.0
+texture_progress = ExtResource("3_lwnqj")
+
+[node name="P2Health" type="TextureProgressBar" parent="GameHUD_Background/HealthBars" unique_id=907058496]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 35.0
+offset_top = 56.0
+offset_right = 256.0
+offset_bottom = 70.0
+grow_horizontal = 2
+max_value = 10000.0
+step = 0.0
+value = 7000.0
+texture_progress = ExtResource("5_xgp81")
+
+[node name="ArrowHolder" type="Node2D" parent="GameHUD_Background/HealthBars" unique_id=128323936]
+position = Vector2(320, 66)
+script = ExtResource("10_hbmc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="GameHUD_Background/HealthBars/ArrowHolder" unique_id=2015326809]
+texture = ExtResource("10_5ipgc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameHUD_Background/HealthBars/ArrowHolder" unique_id=94862943]
+libraries/ = SubResource("AnimationLibrary_2sb4q")
+
+[node name="Frames" type="TextureRect" parent="GameHUD_Background/HealthBars" unique_id=857309302]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_4gmwt")
 
 [node name="Timer" type="Label" parent="GameHUD_Background/HealthBars" unique_id=205550416]
 layout_mode = 1
@@ -824,17 +890,17 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -46.0
-offset_top = 24.0
+offset_top = -18.0
 offset_right = 46.0
-offset_bottom = 134.0
+offset_bottom = 92.0
 grow_horizontal = 2
 pivot_offset = Vector2(46, 55)
-theme_override_font_sizes/font_size = 80
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OnlineInfo" type="Control" parent="GameHUD_Background" unique_id=1490443186 node_paths=PackedStringArray("P1Name", "P2Name", "P1Platform", "P2Platform")]
+visible = false
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1043,6 +1109,7 @@ near = 0.01
 
 [node name="GameHUD_Foreground" type="Control" parent="." unique_id=595347272 node_paths=PackedStringArray("P1Meter", "P2Meter", "P1TrainingInfo", "P2TrainingInfo", "P1InputHistory", "P2InputHistory")]
 process_priority = -1
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1591,6 +1658,7 @@ script = ExtResource("17_fweai")
 metadata/_custom_type_script = "uid://3uu6r0mhj3p3"
 
 [node name="ResultsScreen" type="Control" parent="." unique_id=661745059]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1684,6 +1752,7 @@ text = "Player 2 name"
 horizontal_alignment = 2
 
 [node name="FadeScreen" type="ColorRect" parent="." unique_id=1110242483]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1714,6 +1783,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -240.0
 offset_bottom = 426.0
+grow_horizontal = 0
 color = Color(0, 0, 0, 0.156863)
 
 [node name="P1Debug" type="Label" parent="Debug" unique_id=1662448426]
@@ -1737,6 +1807,7 @@ text = "Lorem ipsun"
 horizontal_alignment = 2
 
 [node name="FPSDisplay" type="Control" parent="." unique_id=1091833598]
+visible = false
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
